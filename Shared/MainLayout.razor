@@ -1,0 +1,50 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4">
+            <NavLink class="nav-link" href="Acerca de">
+                Acerca de
+            </NavLink>
+        </div>
+
+        <div class="content px-4">
+            @Body
+        </div>
+
+        <br /><br /><br /><br /><br /><br />
+
+        <footer class="page-footer font-small teal pt-4">
+            <div class="card-header container-fluid text-center text-md-left">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <h5 class="text-uppercase font-weight-bold">Sobre mi:</h5>
+                        <p>© 2020 Copyright: Gabriel Ernesto De La Rosa Paniagua</p>
+                        <p>2019-7878</p>
+                    </div>
+
+                    <hr class="clearfix w-100 d-md-none pb-3">
+                    <div class="col-md-6 mb-md-0 mb-3">
+                        <h5 class="text-uppercase font-weight-bold">Redes Sociales</h5>
+                        <a class="navbar-brand" target="_blank" href="https://www.youtube.com/channel/UCnAQox3y2MbF8-yi9kJjuRA/videos?view_as=subscriberl">
+                            <img src="css/img/Youtube.png" width="65" height="65" class="d-inline-block align-top" alt="Logo Youtube" loading="lazy">
+                        </a>
+                        <a class="navbar-brand" target="_blank" href="https://www.facebook.com/gabrielernesto.delarosapaniagua/">
+                            <img src="css/img/Facebook.png" width="65" height="65" class="d-inline-block align-top" alt="Logo Facebook" loading="lazy">
+                        </a>
+                        <a class="navbar-brand" target="_blank" href="https://www.instagram.com/gabriel_7729/">
+                            <img src="css/img/Instagram.png" width="65" height="65" class="d-inline-block align-top" alt="Logo Instagram" loading="lazy">
+                        </a>
+                        <a class="navbar-brand" target="_blank" href="https://twitter.com/Lusan7729?s=09">
+                            <img src="css/img/Twitter.png" width="65" height="65" class="d-inline-block align-top" alt="Logo Twitter" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@page "/Consulta4"
+@inject IJSRuntime JSRuntime
+@implements IDisposable
+
+<header>
+    <div class="alert alert-secondary mt-4" role="alert">
+        <center>
+            <b>La cantidad de productos que existen por categoría. Nombre de categoría y cantidad de productos.</b>
+        </center>
+    </div>
+</header>
+
+<section class="container-fluid">
+    <table class="table table-bordered table-hover" id="example">
+        <thead class="thead-dark">
+            <tr>
+                <th>Categoría</th>
+                <th>Cantidad de Productos</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Products product in GetProducts())
+            {
+                <tr>
+                    @if (counted != product.Category)
+                    {
+                        counted = product.Category;
+                        <td>@product.Category</td>
+                        <td>@x(@product.Category)</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+
+@code{
+    List<Products> GetProducts() => new northwindContext().Products.ToList();
+
+    northwindContext nc = new northwindContext();
+
+    int count;
+    string counted;
+
+    public int x(string dato)
+    {
+        return count = nc.Products.Where(p => p.Category == dato).Count();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeAsync<object>("TestDataTablesAdd", "#example");
+    }
+    void IDisposable.Dispose()
+    {
+        JSRuntime.InvokeAsync<object>("TestDataTablesRemove", "#example");
+    }
+}
